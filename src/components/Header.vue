@@ -1,9 +1,12 @@
 <script setup>
-defineProps({
-    isDarkMode: {
-        type: Boolean
-    }
-})
+import { ref } from 'vue';
+
+const isDarkMode = ref(false);
+
+const toggleDarkMode = () => {
+    isDarkMode.value = !isDarkMode.value;
+}
+
 </script>
 
 <template>
@@ -11,7 +14,7 @@ defineProps({
         <div className='container'>
             <div className='flex-header'>
                 <h1>Where in the world?</h1>
-                <button>Dark Mode</button>
+                <button @click="toggleDarkMode">Dark Mode: {{ isDarkMode }}</button>
             </div>
         </div>
     </header>
