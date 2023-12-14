@@ -1,6 +1,9 @@
 <script setup>
-
+import Countries from '../components/Countries.vue';
 </script>
+
 <template>
-    <div>List countries here</div>
+    <div class="container">
+        <Countries />
+    </div>
 </template>

@@ -33,6 +33,65 @@
                 </section>
             </div>
         </div>
-
     </div>
 </template>
+
+<style lang="scss">
+.details-header {
+    margin-bottom: 40px;
+}
+
+.back {
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-right: 5px;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 900px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.details-img img {
+    width: 100%;
+
+    @media screen and (min-width: 900px) {
+        width: 75%;
+    }
+}
+
+.details-img,
+.details-content {
+    @media screen and (min-width: 900px) {
+        width: 50%;
+    }
+}
+
+.details-content {
+    margin-top: 50px;
+
+    section {
+        margin-bottom: 50px;
+
+        @media screen and (min-width: 900px) {
+            margin-bottom: 0;
+            margin-right: 60px;
+        }
+    }
+
+    .content {
+        @media screen and (min-width: 900px) {
+            display: flex;
+        }
+    }
+}
+</style>
