@@ -15,15 +15,15 @@ const countryList = ref([1, 2, 3, 4, 5, 6, 7])
 
 <style lang="scss">
 .countries {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -50px;
-}
+    display: grid;
 
-.country {
-    // flex-shrink: 0;
-    // flex-grow: 0;
-    margin-left: 50px;
-    margin-bottom: 50px;
+    @media screen and (min-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    @media screen and (min-width: 1000px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 </style>
