@@ -4,7 +4,7 @@ defineProps(['country']);
 
 <template>
     <div className="card-container">
-        <div className="card-image"><img :src="`${country.flags.png}`" /></div>
+        <div className="card-image"><img :src="country.flags.png" /></div>
         <div className="card-info">
             <h3>{{ country.name }}</h3>
             <!-- Format the population to have commas -->
