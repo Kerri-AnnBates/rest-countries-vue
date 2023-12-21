@@ -1,13 +1,13 @@
 <script setup>
 import CountryCard from './CountryCard.vue';
 
-defineProps(['countryData']);
+defineProps(['countryList']);
 </script>
 
 <template>
     <div class="countries">
-        <div v-for="(counrty, index) in countryData" class="country" :key="index">
-            <CountryCard />
+        <div v-for="(country, index) in countryList" class="country" :key="index">
+            <CountryCard :country="country" />
         </div>
     </div>
 </template>

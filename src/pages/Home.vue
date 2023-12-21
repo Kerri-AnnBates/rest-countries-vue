@@ -2,11 +2,14 @@
 import { onMounted, ref } from 'vue';
 import Countries from '../components/Countries.vue';
 import SearchFilter from '../components/SearchFilter.vue';
+import { getLocalCountries } from '../api/index'
 
-const countryData = ref(null);
+const countryList = ref(null);
 
 onMounted(() => {
-    countryData.value = ["country1", "country2", "country3", "country4", "country5", "country6", "country7"];
+    getLocalCountries().then(countries => {
+        countryList.value = countries;
+    }).catch(err => console.log(err));
 });
 
 </script>
@@ -14,6 +17,6 @@ onMounted(() => {
 <template>
     <div class="container">
         <SearchFilter />
-        <Countries :countryData="countryData" />
+        <Countries :countryList="countryList" />
     </div>
 </template>
