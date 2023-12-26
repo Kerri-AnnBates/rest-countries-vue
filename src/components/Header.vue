@@ -1,12 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-
-const isDarkMode = ref(false);
-
-const toggleDarkMode = () => {
-    isDarkMode.value = !isDarkMode.value;
-}
-
+defineProps(['isDarkMode']);
+defineEmits(['toggleDarkMode']);
 </script>
 
 <template>
@@ -14,7 +8,7 @@ const toggleDarkMode = () => {
         <div className='container'>
             <div className='flex-header'>
                 <h1>Where in the world?</h1>
-                <button @click="toggleDarkMode">Dark Mode: {{ isDarkMode }}</button>
+                <button @click="$emit('toggleDarkMode')">Dark Mode: {{ isDarkMode }}</button>
             </div>
         </div>
     </header>
