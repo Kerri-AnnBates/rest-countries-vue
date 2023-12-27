@@ -13,6 +13,7 @@ const routes = [
         name: 'CountryDetail',
         component: CountryDetail
     }
+    // Add fallback route for a custom 404 page
 ]
 
 const router = createRouter({

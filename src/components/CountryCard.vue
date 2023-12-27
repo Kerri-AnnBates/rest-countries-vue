@@ -3,16 +3,19 @@ defineProps(['country']);
 </script>
 
 <template>
-    <div className="card-container">
-        <div className="card-image"><img :src="country.flags.png" /></div>
-        <div className="card-info">
-            <h3>{{ country.name }}</h3>
-            <!-- Format the population to have commas -->
-            <p><span className="highlight">Population:</span> {{ country.population }}</p>
-            <p><span className="highlight">Region:</span> {{ country.region }}</p>
-            <p><span className="highlight">Capital:</span> {{ country.capital }}</p>
+    <!-- make params dynamic -->
+    <RouterLink :to="{ name: 'CountryDetail', params: { id: 1 } }">
+        <div className="card-container">
+            <div className="card-image"><img :src="country.flags.png" /></div>
+            <div className="card-info">
+                <h3>{{ country.name }}</h3>
+                <!-- Format the population to have commas -->
+                <p><span className="highlight">Population:</span> {{ country.population }}</p>
+                <p><span className="highlight">Region:</span> {{ country.region }}</p>
+                <p><span className="highlight">Capital:</span> {{ country.capital }}</p>
+            </div>
         </div>
-    </div>
+    </RouterLink>
 </template>
 
 <style lang="scss">
