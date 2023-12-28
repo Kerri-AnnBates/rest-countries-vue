@@ -4,7 +4,7 @@ defineProps(['country']);
 
 <template>
     <!-- make params dynamic -->
-    <RouterLink :to="{ name: 'CountryDetail', params: { id: 1 } }">
+    <RouterLink :to="{ name: 'CountryDetail', params: { name: 'us' } }">
         <div className="card-container">
             <div className="card-image"><img :src="country.flags.png" /></div>
             <div className="card-info">
