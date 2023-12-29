@@ -1,3 +1,4 @@
+import axios from 'axios';
 import data from '../../data.json';
 
 
@@ -9,4 +10,10 @@ export const getLocalCountries = async () => {
             rej("Data not available");
         }
     });
+}
+
+export const getCountries = async () => {
+    return axios.get("https://restcountries.com/v3.1/all?fields=name,capital,region,population,flags")
+        .then(res => res)
+        .catch(err => err)
 }

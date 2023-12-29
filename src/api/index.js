@@ -1,1 +1,1 @@
-export { getLocalCountries } from './getCountries.js';
+export { getLocalCountries, getCountries } from './getCountries.js';
