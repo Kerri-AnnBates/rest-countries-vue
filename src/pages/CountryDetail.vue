@@ -1,6 +1,14 @@
+<script setup>
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+console.log(route.params);
+
+// Get country detail
+</script>
+
 <template>
     <div class="container">
-
         <div className='details-header'>
             <button className="back">
                 Back
