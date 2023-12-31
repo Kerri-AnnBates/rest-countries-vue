@@ -24,7 +24,6 @@ const capital = computed(() => {
 </script>
 
 <template>
-    <!-- make params dynamic -->
     <RouterLink :to="{ name: 'CountryDetail', params: { name: countryName } }">
         <div className="card-container">
             <div className="card-image"><img :src="country.flags.png" /></div>
@@ -51,6 +50,8 @@ const capital = computed(() => {
     img {
         border-radius: 5px 5px 0 0;
         width: 100%;
+        height: 180px;
+        object-fit: cover;
     }
 }
 
