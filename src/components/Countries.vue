@@ -15,14 +15,20 @@ defineProps(['countryList']);
 <style lang="scss">
 .countries {
     display: grid;
+    grid-auto-rows: 1fr;
+    gap: 50px;
 
     @media screen and (min-width: 600px) {
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px;
     }
 
     @media screen and (min-width: 1000px) {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+.country {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 </style>
