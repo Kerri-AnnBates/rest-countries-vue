@@ -45,8 +45,8 @@ const capital = computed(() => {
     img {
         border-radius: 5px 5px 0 0;
         width: 100%;
-        height: 180px;
-        object-fit: cover;
+        height: 160px;
+        object-fit: fill;
     }
 }
 
