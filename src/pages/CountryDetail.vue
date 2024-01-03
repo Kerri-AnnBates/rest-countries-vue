@@ -1,10 +1,11 @@
 <script setup>
 import { useRoute } from 'vue-router';
 import { ref, watch } from 'vue';
-import { getCountryDetails } from '../api';
+import { getCountryDetails, getBorderNames } from '../api';
 
 const route = useRoute();
 const country = ref(null);
+const borderNames = ref([]);
 const error = ref(null);
 
 watch(route, (currRoute) => {
@@ -12,10 +13,16 @@ watch(route, (currRoute) => {
 
 	// get country details
 	getCountryDetails(countryName)
-		.then(res => country.value = res.data[0])
+		.then(res => {
+			country.value = res.data[0];
+			return res.data[0].borders;
+		})
+		.then(borderAbbreviations => getBorderNames(borderAbbreviations))
+		.then(res => {
+			borderNames.value = res.map(res => res.data.name.common);
+		})
 		.catch(err => error.value = err)
 
-	// get country border names
 }, { immediate: true })
 
 </script>
@@ -52,8 +59,8 @@ watch(route, (currRoute) => {
 					<section>
 						<h3>Border Countries:</h3>
 						<!-- List of buttons -->
-						<button>
-							<RouterLink :to="{ name: 'CountryDetail', params: { name: 'mexico' } }">Mexico</RouterLink>
+						<button v-for="borderName in borderNames">
+							<RouterLink :to="{ name: 'CountryDetail', params: { name: borderName } }">{{ borderName }}</RouterLink>
 						</button>
 					</section>
 				</div>
