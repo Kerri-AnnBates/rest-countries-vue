@@ -8,11 +8,8 @@ const country = ref(null);
 const borderNames = ref([]);
 const error = ref(null);
 
-watch(route, (currRoute) => {
-	const countryName = currRoute.params.name;
-
-	// get country details
-	getCountryDetails(countryName)
+watch(() => route.params.name, (currCountryName) => {
+	getCountryDetails(currCountryName)
 		.then(res => {
 			country.value = res.data[0];
 			return res.data[0].borders;
