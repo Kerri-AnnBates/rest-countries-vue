@@ -7,7 +7,7 @@ const searchTerm = ref("");
 <template>
     <div className='search-container'>
         <!-- Search Icon here -->
-        <v-icon icon="mdi-magnify" color="black"></v-icon>
+        <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
         <input v-model="searchTerm" type="search" name="search" id="search" placeholder='Search for a country...' autocomplete="off" />
     </div>
 </template>

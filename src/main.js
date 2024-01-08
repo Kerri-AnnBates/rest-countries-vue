@@ -1,25 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faMagnifyingGlass, faMoon as faMoonSolid } from '@fortawesome/free-solid-svg-icons'
+import { faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
 
-// Vuetify
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
-import "@mdi/font/css/materialdesignicons.css";
+const app = createApp(App)
 
-const vuetify = createVuetify({
-    icons: {
-        defaultSet: "mdi",
-        aliases,
-        sets: {
-            mdi
-        },
-    },
-    components,
-    directives,
-})
+app.component('font-awesome-icon', FontAwesomeIcon) // Register component globally
+library.add([faMagnifyingGlass, faMoonRegular, faMoonSolid])
 
-createApp(App).use(router).use(vuetify).mount('#app')
+app.use(router)
+app.mount('#app')

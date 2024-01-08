@@ -8,7 +8,11 @@ defineEmits(['toggleDarkMode']);
         <div className='container'>
             <div className='flex-header'>
                 <h1>Where in the world?</h1>
-                <button @click="$emit('toggleDarkMode')">Dark Mode: {{ isDarkMode }}</button>
+                <button @click="$emit('toggleDarkMode')">
+                    <font-awesome-icon v-if="isDarkMode" :icon="['fas', 'moon']" />
+                    <font-awesome-icon v-else :icon="['far', 'moon']" />
+                    Dark Mode: {{ isDarkMode }}
+                </button>
             </div>
         </div>
     </header>
